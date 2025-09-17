@@ -1,5 +1,4 @@
-from io import BufferedWriter, TextIOWrapper
-from ntpath import basename
+from io import  TextIOWrapper
 from sys import argv
 
 def define_ast(output_dir: str, class_name: str, subclasses: dict[str, str]):
@@ -41,7 +40,7 @@ def define_ast(output_dir: str, class_name: str, subclasses: dict[str, str]):
 
 def define_visitor(writer: TextIOWrapper,  class_name: str, subclasses: dict[str, str] ): 
     _=writer.write("interface Visitor<R> {\n");
-    for type_name, type_fields in subclasses.items():
+    for type_name in subclasses.keys():
         _=writer.write(f"  R visit{type_name}{class_name}({type_name} {class_name.lower()}); \n")
 
     _= writer.write("}\n");
