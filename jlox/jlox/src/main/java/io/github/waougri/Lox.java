@@ -52,4 +52,13 @@ public class Lox {
     System.err.println("[line " + line + "] Error " + where + ": " + message);
     hadError = true;
   }
+
+  static void run(String sourec) {
+    Scanner scanner = new Scanner(sourec);
+    var toks = scanner.scanTokens();
+    for (var tok : toks) {
+      System.out.println(tok);
+    }
+
+  }
 }
